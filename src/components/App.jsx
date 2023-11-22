@@ -1,6 +1,9 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
 
+import { getTrending } from 'api/api';
+
+
 import { Toaster } from 'react-hot-toast';
 import Home from 'pages/HomaPage';
 import MoviesPage from 'pages/MoviesPage';

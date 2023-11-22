@@ -1,21 +1,71 @@
 import axios from 'axios';
 
-axios.defaults.baseURL = '';
-
+axios.defaults.baseURL = 'https://api.themoviedb.org/3/';
 const API_KEY = 'd7f6b400e4ff4ac775f6f03de04c7bd3';
-const BASE_URL = 'https://api.themoviedb.org/';
 
+//запит за трендовими фільмами з тижня
 export const getTrending = async () => {
-  const response = await axios.get();
+  const ENDPOINT = 'trending/movie/week';
 
-  return response.data;
+  const response = await axios.get(`${ENDPOINT}?api_key=${API_KEY}`);
+  console.log(response);
+
+  return response.data.results;
 };
 
-export const getMovies = async params => {};
 
-export const getMovieByName = async query => { };
 
-export const getMovieById = async (id) => {
-  // const response = await axios.get(`/movies/${id}`)
-}
+
+// пошук фільмів за ключовим словом
+export const getMovieByName = async query => {
+  const ENDPOINT = 'search/movie';
+
+  const response = await axios.get(
+    `${ENDPOINT}?api_key=${API_KEY}&query=${query}&language=en-US&page=1`
+  );
+
+  return response.data.results;
+};
+
+
+
+
+//запит повної інформації про фільм для сторінки кінофільму.
+export const getMovieById = async movieId => {
+  const ENDPOINT = `movie/${movieId}`;
+
+  const response = await axios.get(
+    `${ENDPOINT}?api_key=${API_KEY}&language=en-US`
+  );
+  console.log(response);
+};
+
+
+
+
+//запит по акторському складу фільму по його id
+export const getCast = async movieId => {
+  const ENDPOINT = `movie/${movieId}/credits`;
+
+  const response = await axios.get(
+    `${ENDPOINT}?api_key=${API_KEY}&language=en-US`
+  );
+
+  return response.data.cast;
+};
+
+
+
+
+//запит за reviews фільму за його id
+export const getReviews = async movieId => {
+  const ENDPOINT = `movie/${movieId}/reviews`;
+
+  const response = await axios.get(
+    `${ENDPOINT}?api_key=${API_KEY}&language=en-US`
+  );
+
+  return response.data.results;
+};
+
 
