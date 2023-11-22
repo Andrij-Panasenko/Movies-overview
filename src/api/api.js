@@ -8,7 +8,6 @@ export const getTrending = async () => {
   const ENDPOINT = 'trending/movie/week';
 
   const response = await axios.get(`${ENDPOINT}?api_key=${API_KEY}`);
-  console.log(response);
 
   return response.data.results;
 };

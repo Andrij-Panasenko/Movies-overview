@@ -1,13 +1,11 @@
 import { NavLink, Route, Routes } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
 
-import { getTrending } from 'api/api';
-
 
 import { Toaster } from 'react-hot-toast';
-import Home from 'pages/HomaPage';
-import MoviesPage from 'pages/MoviesPage';
-import MovieDetailsPage from 'pages/MovieDetailsPage';
+import Home from 'pages/HomePage/HomaPage';
+import MoviesPage from 'pages/MoviesPage/MoviesPage';
+import MovieDetails from 'components/MovieDetails/MovieDetails';
 import { Cast } from './Cast/Cast';
 import { Reviews } from './Reviews/Reviews';
 
@@ -26,10 +24,11 @@ export const App = () => {
           </ul>
         </nav>
       </header>
+
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<MoviesPage />} />
-        <Route path="/movies/:movieId" element={<MovieDetailsPage />}>
+        <Route path="/movies/:movieId" element={<MovieDetails />}>
           <Route path="cast" element={<Cast />} />
           <Route path="reviews" element={<Reviews />} />
         </Route>
