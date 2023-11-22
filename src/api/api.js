@@ -29,14 +29,14 @@ export const getMovieByName = async query => {
 
 
 
-//запит повної інформації про фільм для сторінки кінофільму.
+//запит по АЙДІ повної інформації про фільм для сторінки кінофільму .
 export const getMovieById = async movieId => {
   const ENDPOINT = `movie/${movieId}`;
 
   const response = await axios.get(
     `${ENDPOINT}?api_key=${API_KEY}&language=en-US`
   );
-  console.log(response);
+  return response.data;
 };
 
 

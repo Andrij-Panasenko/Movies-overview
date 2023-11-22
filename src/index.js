@@ -4,7 +4,11 @@ import { App } from 'components/App';
 import { ThemeProvider } from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
 
-const theme = {};
+const theme = {
+  colors: {
+    bcgColor: '#1e1f27;',
+  },
+};
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
