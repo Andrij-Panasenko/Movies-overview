@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { NavLink, Outlet, useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovieById } from 'api/api';
 import { Loader } from 'components/Loader/Loader';
@@ -31,6 +31,20 @@ export default function MovieDetailsPage() {
     <>
       {isLoading && <Loader />}
       <MovieDetails movie={movie} />
+      <div>
+        <h2>Additional information</h2>
+        <ul>
+          <li>
+            <NavLink to="cast">
+              Cast
+            </NavLink>
+          </li>
+          <li>
+            <NavLink to="reviews">Reviews</NavLink>
+          </li>
+        </ul>
+      </div>
+      <Outlet />
     </>
   );
 }
@@ -46,22 +60,3 @@ export default function MovieDetailsPage() {
 
 
 
-
-
-
-
-//десь тут треба/можна використати params = useParams()
-
-{
-  /* <ul>
-  <li>
-    <NavLink to="cast">Cast</NavLink>
-  </li>
-  <li>
-    <NavLink to="reviews">Reviews</NavLink>
-  </li>
-</ul>; */
-}
-{
-  /* <Outlet /> */
-}

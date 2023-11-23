@@ -1,5 +1,4 @@
 import { BASE_POSTER_URL } from 'constants/constants';
-import { NavLink, Outlet } from 'react-router-dom';
 
 export const MovieDetails = ({ movie }) => {
   return (
@@ -21,18 +20,6 @@ export const MovieDetails = ({ movie }) => {
                 movie.genres.map(genre => <li key={genre.id}>{genre.name}</li>)}
             </ul>
           </div>
-          <div>
-            <h2>Additional information</h2>
-            <ul>
-              <li>
-                <NavLink to="cast">Cast</NavLink>
-              </li>
-              <li>
-                <NavLink to="reviews">Reviews</NavLink>
-              </li>
-            </ul>
-          </div>
-          <Outlet />
         </div>
       )}
     </>

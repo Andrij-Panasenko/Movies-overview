@@ -4,14 +4,17 @@ import { Loader } from "components/Loader/Loader";
 import { SearchForm } from "components/SearchForm/SearchForm";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
+import { useSearchParams } from "react-router-dom";
 
 export default function MoviesPage() {
   const [movies, setMovies] = useState([]);
-  const [query, setQuery] = useState('');
-  const [isLoading, setIsLoading] = useState(false)
+  // const [query, setQuery] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
 
-  
-  
+  const [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams);
+  const query = searchParams.get('query') ?? '';
+
   useEffect(() => {
     if (query === '') {
       return;
@@ -37,7 +40,18 @@ export default function MoviesPage() {
     evt.preventDefault();
 
     const searchQuery = evt.currentTarget.query.value;
-    setQuery(searchQuery.toLowerCase().trim());
+
+    searchParams.set('query', searchQuery)
+    setSearchParams(searchParams)
+
+
+
+
+
+
+    // searchParams.set('query', searchQuery.toLowerCase().trim());
+    // setSearchParams(searchParams);
+    // setQuery(searchQuery.toLowerCase().trim());
   };
   
 
