@@ -22,15 +22,17 @@ export const Reviews = () => {
 
   return (
     <>
-      {reviews && (
+      {reviews && reviews.length > 0 ? (
         <ul>
           {reviews.map(({ author, id, content }) => (
-             <li key={id}>
-                <h2>Author: {author}</h2>
-                <p>{content}</p>
+            <li key={id}>
+              <h2>Author: {author}</h2>
+              <p>{content}</p>
             </li>
           ))}
         </ul>
+      ) : (
+        <p>There is no reviews yet</p>
       )}
     </>
   );
