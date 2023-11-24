@@ -16,8 +16,6 @@ export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
 
   const location = useLocation();
-  console.log('location', location)
-
 
   const param = useParams();
 

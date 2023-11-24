@@ -4,14 +4,11 @@ import { Loader } from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 
 import toast from 'react-hot-toast';
-import { useLocation } from 'react-router-dom';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [trendings, setTrendings] = useState([]);
 
-  const location = useLocation();
-  console.log(location);
 
   useEffect(() => {
     async function getMovies() {
