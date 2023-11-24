@@ -1,4 +1,10 @@
-import { NavLink, Outlet, useParams } from 'react-router-dom';
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useParams,
+} from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { getMovieById } from 'api/api';
 import { Loader } from 'components/Loader/Loader';
@@ -7,9 +13,15 @@ import { MovieDetails } from 'components/MovieDetails/MovieDetails';
 
 export default function MovieDetailsPage() {
   const [isLoading, setIsLoading] = useState(false);
-  const [movie, setMovie] = useState(null)
+  const [movie, setMovie] = useState(null);
+
+  const location = useLocation();
+  console.log('location', location)
+
 
   const param = useParams();
+
+  const backLink = location.state?.from ?? '/';
 
   useEffect(() => {
     async function fetchMovie() {
@@ -26,18 +38,20 @@ export default function MovieDetailsPage() {
     fetchMovie();
   }, [param.movieId]);
 
-
   return (
     <>
       {isLoading && <Loader />}
+
+      <Link to={backLink}>
+        <b>Go Back</b>
+      </Link>
+
       <MovieDetails movie={movie} />
       <div>
         <h2>Additional information</h2>
         <ul>
           <li>
-            <NavLink to="cast">
-              Cast
-            </NavLink>
+            <NavLink to="cast">Cast</NavLink>
           </li>
           <li>
             <NavLink to="reviews">Reviews</NavLink>
@@ -48,15 +62,3 @@ export default function MovieDetailsPage() {
     </>
   );
 }
-
-
-
-
-
-
-
-
-
-
-
-

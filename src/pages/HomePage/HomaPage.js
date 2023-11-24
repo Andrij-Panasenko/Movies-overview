@@ -1,17 +1,20 @@
 import { getTrending } from 'api/api';
-import { FilmList } from 'components/FilmList/FilmList';
+import { MovieList } from 'components/MovieList/FilmList';
 import { Loader } from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 
 import toast from 'react-hot-toast';
+import { useLocation } from 'react-router-dom';
 
 export default function Home() {
   const [isLoading, setIsLoading] = useState(false);
   const [trendings, setTrendings] = useState([]);
 
+  const location = useLocation();
+  console.log(location);
+
   useEffect(() => {
     async function getMovies() {
-      
       setIsLoading(true);
       try {
         const data = await getTrending();
@@ -29,7 +32,7 @@ export default function Home() {
     <>
       <h1>Trending today</h1>
       {isLoading && <Loader />}
-      <FilmList movies={trendings} />
+      <MovieList movies={trendings} />
     </>
   );
 }
