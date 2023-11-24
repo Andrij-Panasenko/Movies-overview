@@ -1,4 +1,4 @@
-import { BASE_POSTER_URL } from 'constants/constants';
+import { BASE_POSTER_URL, IMG_PLACEHOLDER } from 'constants/constants';
 import { useLocation } from 'react-router-dom';
 import { Img, Link, List, ListItem, MovieTitle } from './MovieList.styled';
 
@@ -12,7 +12,7 @@ export const MovieList = ({ movies }) => {
           <ListItem key={id}>
             <Link to={`/movies/${id}`} state={{ from: location }}>
               <Img
-                src={poster_path && BASE_POSTER_URL + poster_path}
+                src={poster_path ? BASE_POSTER_URL + poster_path : IMG_PLACEHOLDER}
                 alt={original_title}
               />
               <MovieTitle>{original_title}</MovieTitle>

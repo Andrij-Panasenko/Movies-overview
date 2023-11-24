@@ -1,4 +1,12 @@
-import { useSearchParams } from 'react-router-dom';
+import {  useSearchParams } from 'react-router-dom';
+import {
+  Button,
+  ButtonLabel,
+  Input,
+  Label,
+  Wrapper,
+  Form,
+} from './SearchBar.styled';
 
 export const SearchBar = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -14,18 +22,16 @@ export const SearchBar = () => {
 
   return (
     <>
-      <form onSubmit={searchHandler}>
-        <label>
-          <input
-            type="text"
-            name="query"
-            autoComplete="off"
-            placeholder="Search movies"
-          />
-        </label>
+      <Form onSubmit={searchHandler}>
+        <Wrapper>
+          <Input type="text" name="query" autoComplete="off" placeholder="" />
+          <Label>Search movies</Label>
+        <Button type="submit">
+          <ButtonLabel>Search</ButtonLabel>
+        </Button>
+        </Wrapper>
 
-        <button type="submit">Search</button>
-      </form>
+      </Form>
     </>
   );
 };
