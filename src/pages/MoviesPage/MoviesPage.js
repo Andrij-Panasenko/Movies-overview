@@ -1,7 +1,7 @@
 import { getMovieByName } from 'api/api';
 import { MovieList } from 'components/MovieList/MovieList';
 import { Loader } from 'components/Loader/Loader';
-import { SearchBar } from 'components/SearchForm/SearchBar';
+import { SearchBar } from 'components/SearchBar/SearchBar';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useSearchParams } from 'react-router-dom';
