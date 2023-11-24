@@ -1,16 +1,19 @@
-import {
-  Link,
-  NavLink,
-  Outlet,
-  useLocation,
-  useParams,
-} from 'react-router-dom';
+import { Outlet, useLocation, useParams } from 'react-router-dom';
 import { useEffect, useRef, useState } from 'react';
 import { getMovieById } from 'api/api';
 import { Loader } from 'components/Loader/Loader';
 import toast from 'react-hot-toast';
 import { MovieDetails } from 'components/MovieDetails/MovieDetails';
 import { FaArrowLeft } from 'react-icons/fa6';
+import {
+  AddInfoTitle,
+  AddInfoWrapp,
+  List,
+  ListItem,
+  StyledLink,
+  StyledNavLink,
+  Wrapp,
+} from './MovieDetailsPage.styled';
 
 export default function MovieDetailsPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -41,25 +44,25 @@ export default function MovieDetailsPage() {
     <>
       {isLoading && <Loader />}
 
-      <Link to={backLink}>
-        <b>
+      <Wrapp>
+        <StyledLink to={backLink}>
           <FaArrowLeft />
           Go Back
-        </b>
-      </Link>
+        </StyledLink>
+      </Wrapp>
 
       <MovieDetails movie={movie} />
-      <div>
-        <h2>Additional information</h2>
-        <ul>
-          <li>
-            <NavLink to="cast">Cast</NavLink>
-          </li>
-          <li>
-            <NavLink to="reviews">Reviews</NavLink>
-          </li>
-        </ul>
-      </div>
+      <AddInfoWrapp>
+        <AddInfoTitle>Additional information</AddInfoTitle>
+        <List>
+          <ListItem>
+            <StyledNavLink to="cast">Cast</StyledNavLink>
+          </ListItem>
+          <ListItem>
+            <StyledNavLink to="reviews">Reviews</StyledNavLink>
+          </ListItem>
+        </List>
+      </AddInfoWrapp>
       <Outlet />
     </>
   );
