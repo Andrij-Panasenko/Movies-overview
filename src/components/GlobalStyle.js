@@ -4,6 +4,7 @@ import 'modern-normalize';
 export const GlobalStyle = createGlobalStyle`
    body {
   font-family: Ubuntu, sans-serif;
+  color: #ffffff;
 }
 
 button {

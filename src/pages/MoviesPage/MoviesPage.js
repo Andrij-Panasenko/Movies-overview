@@ -1,5 +1,5 @@
 import { getMovieByName } from 'api/api';
-import { MovieList } from 'components/MovieList/FilmList';
+import { MovieList } from 'components/MovieList/MovieList';
 import { Loader } from 'components/Loader/Loader';
 import { SearchBar } from 'components/SearchForm/SearchBar';
 import { useEffect, useState } from 'react';

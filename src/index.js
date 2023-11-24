@@ -7,7 +7,17 @@ import { BrowserRouter } from 'react-router-dom';
 const theme = {
   colors: {
     bcgColor: '#1e1f27;',
+    orange: '#FFD466',
+    white: '#ffffff',
+    red: '#E24C4B',
   },
+  radii: {
+    sm: '10px',
+    ms: '15px',
+    lg: '20px',
+  },
+
+  spacing: v => `${v * 2}px`
 };
 
 ReactDOM.createRoot(document.getElementById('root')).render(

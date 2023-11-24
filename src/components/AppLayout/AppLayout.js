@@ -2,31 +2,32 @@ import { GlobalStyle } from 'components/GlobalStyle';
 import { Loader } from 'components/Loader/Loader';
 import { Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { NavLink, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { AppWrapper, Header, Nav, NavLink, NavList, NavListItem } from './AppLayout.styled';
 
 export const AppLayout = () => {
   return (
-    <>
-      <header>
-        <nav>
-          <ul>
-            <li>
+    <AppWrapper>
+      <Header>
+        <Nav>
+          <NavList>
+            <NavListItem>
               <NavLink to="/">Home</NavLink>
-            </li>
-            <li>
+            </NavListItem>
+            <NavListItem>
               <NavLink to="/movies">Movies</NavLink>
-            </li>
-          </ul>
-        </nav>
-      </header>
+            </NavListItem>
+          </NavList>
+        </Nav>
+      </Header>
       <main>
-        <Suspense fallback={<Loader/>}>
+        <Suspense fallback={<Loader />}>
           <Outlet />
         </Suspense>
       </main>
 
       <GlobalStyle />
       <Toaster />
-    </>
+    </AppWrapper>
   );
 };

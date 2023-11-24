@@ -1,9 +1,10 @@
 import { getTrending } from 'api/api';
-import { MovieList } from 'components/MovieList/FilmList';
+import { MovieList } from 'components/MovieList/MovieList';
 import { Loader } from 'components/Loader/Loader';
 import { useEffect, useState } from 'react';
 
 import toast from 'react-hot-toast';
+import { Title } from './HomePage.styled';
 
 export default function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -26,7 +27,7 @@ export default function HomePage() {
 
   return (
     <>
-      <h1>Trending today</h1>
+      <Title>Trending today</Title>
       {isLoading && <Loader />}
       <MovieList movies={trendings} />
     </>
