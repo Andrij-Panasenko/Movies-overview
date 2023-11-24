@@ -6,12 +6,13 @@ export const List = styled.ul`
   flex-wrap: wrap;
   row-gap: 25px;
   column-gap: 20px;
-  justify-content: center;
+  /* justify-content: center; */
+  width: 100%;
 `;
 
 export const ListItem = styled.li`
   width: 200px;
-  /* width: calc((100% - 100px) / 6); */
+  width: calc((100% - 140px) / 7);
   text-overflow: ellipsis;
   overflow: hidden;
   text-decoration: none;

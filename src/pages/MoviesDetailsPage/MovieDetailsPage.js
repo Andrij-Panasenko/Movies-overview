@@ -10,6 +10,7 @@ import { getMovieById } from 'api/api';
 import { Loader } from 'components/Loader/Loader';
 import toast from 'react-hot-toast';
 import { MovieDetails } from 'components/MovieDetails/MovieDetails';
+import { FaArrowLeft } from 'react-icons/fa6';
 
 export default function MovieDetailsPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -41,7 +42,10 @@ export default function MovieDetailsPage() {
       {isLoading && <Loader />}
 
       <Link to={backLink}>
-        <b>Go Back</b>
+        <b>
+          <FaArrowLeft />
+          Go Back
+        </b>
       </Link>
 
       <MovieDetails movie={movie} />
