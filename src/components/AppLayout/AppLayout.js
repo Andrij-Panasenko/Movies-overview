@@ -1,4 +1,6 @@
 import { GlobalStyle } from 'components/GlobalStyle';
+import { Loader } from 'components/Loader/Loader';
+import { Suspense } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { NavLink, Outlet } from 'react-router-dom';
 
@@ -18,7 +20,9 @@ export const AppLayout = () => {
         </nav>
       </header>
       <main>
-        <Outlet />
+        <Suspense fallback={<Loader/>}>
+          <Outlet />
+        </Suspense>
       </main>
 
       <GlobalStyle />
