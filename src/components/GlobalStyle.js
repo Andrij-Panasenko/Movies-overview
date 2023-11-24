@@ -5,6 +5,7 @@ export const GlobalStyle = createGlobalStyle`
    body {
   font-family: Ubuntu, sans-serif;
   color: #ffffff;
+  background-color: #1e1f27;
 }
 
 button {
