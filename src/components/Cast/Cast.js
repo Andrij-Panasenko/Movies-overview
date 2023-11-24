@@ -2,7 +2,8 @@ import { getCast } from 'api/api';
 import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { useParams } from 'react-router-dom';
-import { BASE_POSTER_URL } from 'constants/constants';
+import { BASE_POSTER_URL, IMG_PLACEHOLDER } from 'constants/constants';
+import { CastList, Char, Img, Li, Name } from './Cast.styled';
 
 export const Cast = () => {
    const [cast, setCast] = useState([])
@@ -25,22 +26,22 @@ export const Cast = () => {
    return (
      <>
        {cast && (
-         <ul>
-           {cast.map(
-             ({
-               id,
-               character,
-               name,
-               profile_path,
-              }) => (
-                 <li key={id}>
-                    <img src={`${profile_path && BASE_POSTER_URL + profile_path}`} alt={name} />
-                    <p>Name: {name}</p>
-                    <p>Character: {character}</p>
-                 </li>
-             )
-           )}
-         </ul>
+         <CastList>
+           {cast.map(({ id, character, name, profile_path }) => (
+             <Li key={id}>
+               <Img
+                 src={
+                   profile_path
+                     ? BASE_POSTER_URL + profile_path
+                     : IMG_PLACEHOLDER
+                 }
+                 alt={name}
+               />
+               <Name>Name: {name}</Name>
+               <Char>Character: {character}</Char>
+             </Li>
+           ))}
+         </CastList>
        )}
      </>
    );

@@ -30,9 +30,20 @@ export const AddInfoTitle = styled.h2`
 export const List = styled.ul`
   display: flex;
   gap: 40px;
+  align-items: center;
+  margin-bottom: 40px;
 `;
 
 export const ListItem = styled.li`
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+`;
+
+export const StyledNavLink = styled(NavLink)`
+  text-decoration: none;
+
   padding: 15px 20px;
   border: 1px solid #ffd466;
   border-radius: 15px;
@@ -46,9 +57,4 @@ export const ListItem = styled.li`
     background-color: #ffd466;
     color: #000000;
   }
-`;
-
-export const StyledNavLink = styled(NavLink)`
-  text-decoration: none;
-  color: currentColor;
 `;
