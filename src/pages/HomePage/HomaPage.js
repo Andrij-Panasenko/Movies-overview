@@ -5,10 +5,9 @@ import { useEffect, useState } from 'react';
 
 import toast from 'react-hot-toast';
 
-export default function Home() {
+export default function HomePage() {
   const [isLoading, setIsLoading] = useState(false);
   const [trendings, setTrendings] = useState([]);
-
 
   useEffect(() => {
     async function getMovies() {

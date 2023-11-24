@@ -5,7 +5,7 @@ import {
   useLocation,
   useParams,
 } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { getMovieById } from 'api/api';
 import { Loader } from 'components/Loader/Loader';
 import toast from 'react-hot-toast';
@@ -16,10 +16,10 @@ export default function MovieDetailsPage() {
   const [movie, setMovie] = useState(null);
 
   const location = useLocation();
-
+  const backLinckRef = useRef(location);
   const param = useParams();
 
-  const backLink = location.state?.from ?? '/';
+  const backLink = backLinckRef.current.state?.from ?? '/';
 
   useEffect(() => {
     async function fetchMovie() {
